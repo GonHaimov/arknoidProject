@@ -1,0 +1,71 @@
+<!--<project default="compile">-->
+
+<!--    &lt;!&ndash; Define a property, which is like a variable for the build file, &ndash;&gt;-->
+<!--    &lt;!&ndash;  with the classpath for all compilation & execution targets. &ndash;&gt;-->
+<!--    <property name="classpath" value="bin:biuoop-1.4.jar" />-->
+
+<!--    &lt;!&ndash; Compile all java files under `src`, and export .class files into `bin` &ndash;&gt;-->
+<!--    <target name="compile">-->
+<!--        <mkdir dir="bin"/>-->
+<!--        <javac classpath="${classpath}" srcdir="src" destdir="bin" includeantruntime="false"/>-->
+<!--    </target>-->
+
+<!--    <target name="clean">-->
+<!--        <delete dir="bin"/>-->
+<!--    </target>-->
+
+<!--    <target name="run" depends="compile" >-->
+<!--        <java classname="Ass5Game" classpath="${classpath}" fork="true"/>-->
+<!--    </target>-->
+
+<!--    &lt;!&ndash; Run checkstyle on all our source files &ndash;&gt;-->
+<!--    <target name="check">-->
+<!--        <java jar="checkstyle-8.44-all.jar" fork="true">-->
+<!--            <arg line="-c biuoop.xml" />-->
+<!--            <arg line="src/*.java"/>-->
+<!--            <arg line="src/game/*.java"/>-->
+<!--            <arg line="src/geometry/*.java"/>-->
+<!--            <arg line="src/interfaces/*.java"/>-->
+<!--            <arg line="src/notifiers/*.java"/>-->
+<!--            <arg line="src/velocity/*.java"/>-->
+<!--        </java>-->
+<!--    </target>-->
+<!--    -->
+
+<!--</project>-->
+
+<project default="compile">
+
+    <!-- Define a property, which is like a variable for the build file, -->
+    <!--  with the classpath for all compilation & execution targets. -->
+    <property name="classpath" value="bin:biuoop-1.4.jar"/>
+
+    <!-- Compile all java files under src, and export .class files into bin -->
+    <target name="compile">
+        <mkdir dir="bin"/>
+        <javac classpath="${classpath}" srcdir="src" destdir="bin" includeantruntime="false"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="Ass5Game" classpath="${classpath}" fork="true"/>
+    </target>
+
+
+    <!-- Run checkstyle on all our source files -->
+    <target name="check">
+        <java jar="checkstyle-8.44-all.jar" fork="true">
+            <arg line="-c biuoop.xml"/>
+            <arg line="src/*.java"/>
+            <arg line="src/game/*.java"/>
+            <arg line="src/geometry/*.java"/>
+            <arg line="src/interfaces/*.java"/>
+            <arg line="src/notifiers/*.java"/>
+            <arg line="src/velocity/*.java"/>
+        </java>
+    </target>
+
+</project>
