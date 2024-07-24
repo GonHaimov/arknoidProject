@@ -2,7 +2,6 @@
  * This class represents the main entry point for the game application.
  * It creates a Game object, initializes it, and runs the game.
  *
- * @author 314711326 Gon Haimov
  */
 import game.Game;
 
